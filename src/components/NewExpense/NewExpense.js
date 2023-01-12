@@ -22,7 +22,6 @@ const NewExpense = props => {
         setOpenModal(false);
     }
 
-
     return (
             <div className="new-expense">
                 {!openModal && <Button type="button" onClick={addNewExpensesHandler}>Add New Expense</Button>}

@@ -5,15 +5,19 @@ import './chart.css';
 const Chart = props => {
     const {dataPoints} = props;
     const dataPointsValue = dataPoints.map(item => item.value);
-    const totalMax = Math.max(...dataPointsValue);
+    const totalMaxValue = Math.max(...dataPointsValue);
 
-    const renderChart = dataArray => {
-        dataArray.map(item => <ChartBar key={item.label} value={item.value} maxValue={totalMax} label={item.label} />)
+    const renderChart = (dataArray, maxValue) => {
+        return dataArray.map(item => {
+            return (
+                <ChartBar key={item.label} value={item.value} maxValue={maxValue} label={item.label} />
+            )
+        })
     };
 
     return (
         <div className="chart">
-            {renderChart(dataPoints)}
+            {renderChart(dataPoints, totalMaxValue)}
         </div>
     );
 }
